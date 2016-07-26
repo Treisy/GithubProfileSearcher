@@ -10,7 +10,14 @@ export class GithubService{
     this.username = 'treisy';
   }
 
+  // Get user Profile Info
   getUser(){
     return this._http.get('https://api.github.com/users/'+this.username).map(res => res.json());
+  }
+
+
+  // Get User repos
+  getRepos(){
+    return this._http.get('https://api.github.com/users/'+this.username+'/repos').map(res => res.json());
   }
 }
